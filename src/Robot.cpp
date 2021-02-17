@@ -1,5 +1,5 @@
 #include <frc>
-using namespace frc;
+using namespace frc; // "WhY aRe YoU uSinG NaMeSpacE"
 
 bool ButtonToggle(button,state){
   if(button==true && state = true){
@@ -37,7 +37,7 @@ class Robot: public TimedRobot{
     
     robotdrive.ArcadeDrive(controller.GetRawAxis(1),controller.GetRawAxis(4));
     
-    //pnumatic control
+    //pneumatic control
     if(controller.GetRawButtonPressed(8)==true && compState==false){
       compressor.start();
       compstate= 1;

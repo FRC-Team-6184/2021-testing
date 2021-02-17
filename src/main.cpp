@@ -1,7 +1,7 @@
 #include <frc>
 using namespace frc;
 
-bool buttonToggle(button,state){
+bool ButtonToggle(button,state){
   if(button==true && state = true){
   state = false;
   }
@@ -25,7 +25,10 @@ class Robot: public TimedRobot{
   Solenoid topRight{1};
   Solenoid bottomLeft{2};
   Solenoid bottomRight{3};
- 
+  TLState;
+  TRState;
+  BLState;
+  BRState;
   public void TeleopInit(){
   compState = 0;
   }
@@ -33,6 +36,7 @@ class Robot: public TimedRobot{
     
     robotdrive.ArcadeDrive(controller.GetRawAxis(1),controller.GetRawAxis(4));
     
+    //pnumatic control
     if(controller.GetRawButtonPressed(8)==true && compState==false){
       compressor.start();
       compstate= 1;
@@ -41,6 +45,11 @@ class Robot: public TimedRobot{
       compressor.stop();
       compstate=0;
     }
-    topleft
+    topLeft.Set(ButtonToggle(controller.GetRawButtonPressed(1),TLstate));
+    topRight.Set(ButtonToggle(controller.GetRawButtonPressed(2),TRstate));
+    bottomLeft.Set(ButtonToggle(controller.GetRawButtonPressed(3),BLstate));
+    bottomRight.Set(ButtonToggle(controller.GetRawButtonPressed(4),BRstate));
+    
+    
   }
 }

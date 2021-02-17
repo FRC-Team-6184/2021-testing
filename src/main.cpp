@@ -29,10 +29,11 @@ class Robot: public TimedRobot{
   TRState;
   BLState;
   BRState;
-  public void TeleopInit(){
+  public:
+  void TeleopInit(){
   compState = 0;
   }
-  public void TeleopPeriodic(){
+  void TeleopPeriodic(){
     
     robotdrive.ArcadeDrive(controller.GetRawAxis(1),controller.GetRawAxis(4));
     
@@ -53,3 +54,8 @@ class Robot: public TimedRobot{
     
   }
 }
+#ifndef RUNNING_FRC_TESTS
+int main() {
+  return frc::StartRobot<Robot>();
+}
+#endif

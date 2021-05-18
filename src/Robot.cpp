@@ -12,6 +12,7 @@ bool ButtonToggle(button,state){
 }
 class Robot: public TimedRobot{
   //drive
+  wpi::outs() << "test\n";
   PWMVictorSPX rightm{1};
   PWMVictorSPX leftm{0};
   DifferentialDrive robotdrive{leftm,rightm};
